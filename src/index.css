@@ -1,13 +1,508 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+*{
+  margin: 0px;
+  padding: 0px;
+}
+.container {
+  display: flex;
+  font-family: 'Lato', sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.sidebar {
+  width: 719.99px;
+  height: 1024px;
+  position: relative;
+  background-color: transparent; /* Set the background to transparent */
+  overflow: hidden; /* Prevent content from overflowing */
+}
+
+.sidebar::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #605BFF; /* Set the background color here */
+  transform-origin: top left;
+  transform: skew(-10deg);
+  z-index: 5;
+}
+
+
+.logo {
+  position: absolute;
+  top: 54.32px;
+  left: 61.03px;
+}
+
+.logo svg {
+  position: absolute;
+  width: 80.15px;
+  height: 80.15px;
+  z-index: 6; /* Set a higher z-index for Vector to make it cover Ellipse */
+}
+
+.base-text {
+  color: #FFFFFF; /* White color for the text */
+  position: absolute;
+  top: calc(50% + 40px); /* Adjust this value so BASE appears below the logo */
+  transform: translate(-50%, -50%) ; /* Center and unskew the text */
+  width: 205px;
+  height: 88px;
+  top: 462.37px;
+  left: 196.33px;
+
+  font-family: Montserrat, sans-serif;
+  font-size: 72px;
+  font-weight: 700;
+  line-height: 88px;
+  letter-spacing: 0em;
+  text-align: left;
+
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 7; /* Above the skewed background but below the logo */
+}
+
+
+.social-links {
+  display: flex;
+  justify-content: space-between;
+  width: 299px;
+  height: 48px;
+  position: absolute;
+  top: 909px;
+  left: 144.5px;
+  z-index: 8;
+}
+
+.container {
+  background: #F8FAFF;
+
+
+}
+
+
+.sign-in-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 44px;
+  color: #000000;
+  position: absolute;
+  top: 235.32px;
+  left: 813.18px;
+}
+
+.sign-in-subtitle {
+  font-size: 16px;
+  line-height: 19px;
+  color: #000000;
+  position: absolute;
+  top: 289.11px;
+  left: 813.18px;
+}
+
+.auth-buttons {
+  position: absolute;
+  top: 338.51px;
+  left: 813.18px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; /* Change this to space-between */
+  align-items: end;
+}
+
+.google-auth, .apple-auth {
+  width: 197.6px;
+  height: 32.93px;
+  background-color: white;
+  border: none;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  color: #858585;
+}
+
+/* Add margin between the buttons */
+.google-auth {
+  margin-right: 25px; /* Adjust the value based on your preference */
+}
+
+.login-main{
+    display: flex;
+  flex-direction: column;
+}
+
+.login-form {
+  width: 422.64px;
+  height: 390.8px;
+  position: absolute;
+  top: 398.88px;
+  left: 813.18px;
+  border-radius: 10px;
+  /* border: 1px solid #999999; */
+  background-color: white;
+  
+}
+
+.email-label, .password-label {
+  color: #000000;
+  font-size: 16px;
+  line-height: 19px;
+
+  
+}
+
+.email-input, .password-input {
+  width: 356.77px;
+  height: 43.91px;
+  border-radius: 10px;
+  background-color: #EAEAEA;
+}
+
+.forgot-password {
+  color: #346BD4;
+}
+
+.sign-in-button {
+  width: 356.77px;
+  height: 43.91px;
+}
+
+.register-prompt {
+  width: 286.51px;
+  height: 20.86px;
+  text-align: center;
+  background: linear-gradient(0deg, #346BD5, #346BD5), linear-gradient(0deg, #858585, #858585);
+}
+
+.register-link {
+  color: #346BD5;
+}
+
+
+/* Upload.jsx starts  */
+
+/* index.css */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* index.css */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  height: 100%;
+}
+
+/* This ensures that the upload page takes up the full viewport height */
+.upload-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 248px; /* Adjust padding as needed */
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.title {
+  font-size: 24px;
+  color: #333;
+}
+
+.icons {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.bell-icon {
+  width: 18px;
+  height: 23px;
+  /* background: url('path-to-bell-icon.svg'); Replace with the actual path to your bell icon */
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.profile-icon {
+  width: 30px;
+  height: 30px;
+  /* background: url('path-to-profile-icon.svg'); Replace with the actual path to your profile icon */
+  background-size: contain;
+  background-repeat: no-repeat;
+  border-radius: 50%; /* Assuming the profile picture is circular */
+}
+
+/* Add the rest of your styles for content, input-container, upload-area, and upload-button as previously defined */
+
+.content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Include the rest of the styles for input-container, upload-area, and upload-button as previously defined */
+
+.input-container {
+  width: 596px;
+  height: 367px;
+  position: absolute;
+  top: 218px;
+  left: 518px;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.upload-area {
+  width: 100%;
+  height: calc(100% - 56px - 16px); /* Subtract button height and button top margin */
+  border: 2px dashed #000;
+  border-radius: 8px 8px 0 0; /* Top corners rounded */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 16px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.upload-button {
+  width: 564px;
+  height: 56px;
+  margin-top: 16px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background-color: #605BFF;
+  color: white;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 16px;
+}
+
+.upload-button-new{
+  width: 564px;
+  height: 56px;
+  margin-top: 16px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  
+  color: white;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 16px;
+  background-color: #bfbdfa;
+}
+
+/* To add icons or any additional styling to the button or upload area, use additional CSS or inline SVGs */
+
+/* Add the rest of your styles here as previously mentioned */
+
+/* Styling for the Excel icon */
+.excel-icon {
+  margin-right: 10px; /* Adjust spacing as needed */
+  width: 24px; /* Adjust size as needed */
+  height: 24px; /* Adjust size as needed */
+}
+
+/* Style updates for upload-area to include flex properties for proper alignment */
+.upload-area {
+  /* Previous styles */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px; /* Adjust spacing between icon and text as needed */
+}
+
+/* menu css start */
+
+.menu-container {
+  width: 218px;
+  height: 1047px;
+  position: relative;
+  top: -1px;
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Nunito', sans-serif;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  margin-top: 50px; /* Adjust top spacing */
+}
+
+.base-icon {
+  width: 42px;
+  height: 42px;
+}
+
+.base-title {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 33px;
+  margin-left: 15px; /* Adjust left spacing to align with your design */
+  color: #333;
+}
+
+.menu-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 10px 0; /* Adjust padding as needed */
+}
+
+.menu-item img {
+  margin-left: 56px; /* Align icons to the left */
+  margin-right: 20px; /* Space between icon and text */
+}
+
+.menu-item span {
+  color: #333;
+  font-size: 16px;
+}
+
+/* Additional style for active menu item */
+.menu-item.active {
+  background-color: #E8E8E8; /* Active item background color */
+}
+
+/* now Upload File Table css */
+
+
+/* styles.css */
+.uploads-container {
+  width: 1065px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 689px; /* Position from the top */
+  margin-left: 302px; /* Position from the left */
+}
+
+.uploads-header {
+  height: 58px;
+  padding-left: 16px;
+  border-bottom: 1px solid #ccc; /* Adjust color as needed */
+  line-height: 58px; /* Center text vertically */
+  font-size: 24px; /* Adjust size as needed */
+  font-weight: bold;
+  background-color: #fff; /* Background color for the header */
+}
+
+.table-container {
+  width: 1065px;
+  border-radius: 8px;
+}
+
+.table-header, .table-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+}
+
+.table-header {
+  background: #f0f0f0; /* Adjust the color as needed */
+  border-radius: 8px 8px 0 0;
+  font-weight: 600; /* Font weight for header */
+}
+
+.header-cell, .cell {
+  flex: 1;
+  text-align: center;
+}
+
+.table-row {
+  height: 58px;
+  margin-top: 16px; /* Represents the gap between rows */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  border-radius: 8px;
+}
+
+.tags-dropdown {
+  display: none; /* Initially hidden */
+  width: 150px;
+  height: 205px;
+  padding: 8px;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: absolute;
+  top: 250px; /* Position from the top within container */
+  left: 530px; /* Position from the left within container */
+  z-index: 10; /* Make sure it's above other elements */
+}
+
+.tag-select {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+}
+
+.tags-selected {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.tags-selected span {
+  background-color: #ececec;
+  padding: 4px 8px;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  margin-right: 8px; /* Spacing between tags */
+  cursor: pointer;
+}
+
+/* Show the dropdown only for the third row */
+.table-row:nth-child(4) .tags-dropdown {
+  display: block;
+}
+
+/* Style for the link */
+.link a {
+  color: #0000EE; /* Standard link color */
+  text-decoration: none;
+}
+
+.link a:hover {
+  text-decoration: underline;
 }

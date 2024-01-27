@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import SignIn from "./components/SignIn";
+import Menu from "./components/Menu";
+import Upload from "./components/Upload";
+import Uploading from "./components/Uploading";
+import Uploaded from "./components/Uploaded";
+import UploadFileTable from "./components/UploadFileTable";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    
+      <div>
+        <RouterProvider router={appRouter} />
+      </div>
+    
   );
 }
+
+
+export const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <SignIn />,
+    
+   
+  },
+  {
+     path: "/upload",
+    element: <Upload/>,
+
+  }
+]);
+
 
 export default App;
