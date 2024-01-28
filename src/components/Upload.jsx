@@ -7,14 +7,12 @@ import { ReactComponent as Excel } from "../assets/Excel.svg";
 function Upload() {
   return (
     <div className="upload-page">
-      <header className="page-header">
-        <h1 className="title">Upload CSV</h1>
+      <div className="page-header">
+        <h1>Upload CSV</h1>
 
-        <div className="icons">
-          {/* <div className="bell-icon">{<Bellicon />}</div> */}
-          <div className="profile-icon">{<Profile />}</div>
-        </div>
-      </header>
+        {<Profile />}
+    
+      </div>
       <div className="input-container">
         <div className="upload-area">
           {<Excel />}

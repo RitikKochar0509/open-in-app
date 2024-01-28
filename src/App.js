@@ -9,6 +9,7 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import MainContainer from "./components/MainContainer";
 
 
 
@@ -32,9 +33,14 @@ export const appRouter = createBrowserRouter([
   },
   {
      path: "/upload",
-    element: <Upload/>,
+    element: <MainContainer/>,
 
-  }
+  },
+  {
+    path: "/table",
+   element: <UploadFileTable/>,
+
+ }
 ]);
 
 
